@@ -35,7 +35,7 @@ model Transactions {
   type        String
   user_id     String
   date        DateTime
-  createAt    DateTime? @default(now())
+  createdAt   DateTime? @default(now())
   updatedAt   DateTime? @default(now())
   user        User      @relation(fields: [user_id], references: [id])
 

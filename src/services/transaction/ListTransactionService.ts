@@ -21,11 +21,12 @@ class ListTransactionService {
 		if (!findUser) {
 			throw new Error("User not found");
 		}
-		//Pegar todas transações do
+		//Pegar todas transações do dia.
 		const startOfDay = new Date(date);
 		startOfDay.setHours(0, 0, 0, 0);
 		const endOfDay = new Date(date);
 		endOfDay.setHours(23, 59, 59, 999);
+		//Verificar se há como otimizar a consulta do findUser com essa das transações!
 		const transactions = await prismaClient.transactions.findMany({
 			where: {
 				user_id,

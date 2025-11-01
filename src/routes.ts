@@ -5,6 +5,7 @@ import { DetailUserController } from "./controllers/user/DetailUserController";
 import { isAuthenticated } from "./middlewares/isAuthenticated";
 import { CreateTransactionController } from "./controllers/transaction/CreateTransactionController";
 import { ListTransactionController } from "./controllers/transaction/ListTransactionController";
+import { DeleteTransactionController } from "./controllers/transaction/DeleteTransactionController";
 
 const router = Router();
 
@@ -23,6 +24,11 @@ router.get(
 	"/transactions",
 	isAuthenticated,
 	new ListTransactionController().handle
+);
+router.delete(
+	"/transaction/delete",
+	isAuthenticated,
+	new DeleteTransactionController().handle
 );
 
 export { router };
